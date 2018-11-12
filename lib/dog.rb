@@ -49,6 +49,7 @@ class Dog
   def self.create(dog_hash)
     dog = Dog.new(dog_hash.each {|key,value| self.send("#{key}=", value)})
     dog.save
+    dog
   end
   
   def self.find_by_id(id)
