@@ -46,6 +46,7 @@ class Dog
     Dog.new_from_db(DB[:conn].execute(sql, name)[0])
   end
   
-  def self.create(name:, breed:)  
+  def self.create(name:, breed:)
+    self.
   
 end
