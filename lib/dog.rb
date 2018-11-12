@@ -70,7 +70,7 @@ class Dog
     if search.empty?
       dog = Dog.create(name: name, breed: breed)
     else
-      dog = Dog.new_from_db(dog)
+      dog = Dog.new_from_db(search)
     end
     dog
   end
