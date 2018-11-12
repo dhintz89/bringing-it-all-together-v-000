@@ -60,7 +60,7 @@ class Dog
     Dog.new_from_db(DB[:conn].execute(sql, id)[0])
   end
   
-  def self.find_or_create_by(name, breed)
+  def self.find_or_create_by(dog_hash)
     sql = <<-SQL
     SELECT * FROM dogs WHERE name=?, breed=?
     SQL
@@ -68,8 +68,7 @@ class Dog
     dog = DB[:conn].execute(sql, name, breed)
     
     if dog.empty
-      dog = Dog.new(name, breed)
-      dog.save
+      dog = Dog.create(dog_hash)
     else
       dog = Dog.new_from_db(dog)
     end
