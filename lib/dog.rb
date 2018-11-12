@@ -65,7 +65,7 @@ class Dog
     SELECT * FROM dogs WHERE name=?, breed=?
     SQL
     
-    dog = DB[:conn].execute(sql, :name.VALUES, :breed.VALUES)
+    dog = DB[:conn].execute(sql, :name.value, :breed.value)
     
     if dog.empty
       dog = Dog.create(dog_hash)
