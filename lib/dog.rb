@@ -47,7 +47,16 @@ class Dog
   end
   
   def self.create(dog_hash)
-    dog_hash.each {|key,value| self.send("#{key}=", value)}
+    dog = Dog.new(dog_hash.each {|key,value| self.send("#{key}=", value)})
+    dog.save
+  end
+  
+  def self.find_by_id(id)
+    sql <<-SQL
+    SELECT * FROM dogs WHERE id = ?
+    SQL
     
+    Dog.new_from_db(DB[conn:].execute(sql, name)[0])
+  end
   
 end
