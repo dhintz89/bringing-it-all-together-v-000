@@ -27,13 +27,16 @@ class Dog
   end
   
   def save
-    sql = <<-SQL
-    INSERT INTO dogs (name, breed) VALUES (?, ?)
-    SQL
+    if self.id
+      
+    else sql = <<-SQL
+      INSERT INTO dogs (name, breed) VALUES (?, ?)
+      SQL
     
-    DB[:conn].execute(sql, self.name, self.breed)
-    @id = DB[:conn].execute("SELECT id FROM dogs WHERE name = ?", self.name)[0][0]
-    self
+      DB[:conn].execute(sql, self.name, self.breed)
+      @id = DB[:conn].execute("SELECT id FROM dogs WHERE name = ?", self.name)[0][0]
+      self
+    end
   end
   
   def self.new_from_db(row)
