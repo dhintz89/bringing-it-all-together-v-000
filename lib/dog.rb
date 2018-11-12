@@ -68,11 +68,10 @@ class Dog
     search = DB[:conn].execute(sql, name, breed)
     
     if search.empty?
-      dog = Dog.create(name: name, breed: breed)
+      Dog.create(name: name, breed: breed)
     else
-      dog = Dog.new_from_db(search)
+      Dog.new_from_db(search)
     end
-    dog
   end
   
 end
