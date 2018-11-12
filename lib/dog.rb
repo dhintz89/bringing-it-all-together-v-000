@@ -76,7 +76,6 @@ class Dog
     else
       dog = self.new_from_db(search[0])
     end
-        binding.pry
     dog
   end
   
