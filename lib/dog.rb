@@ -72,6 +72,7 @@ class Dog
     else
       dog = Dog.new_from_db(search)
     end
+    dog
   end
   
 end
