@@ -71,7 +71,7 @@ class Dog
       dog = self.create(name: name, breed: breed)
     else
       dog_data = search[0]
-      dog = 
+      dog = self.new()
       # dog = self.new_from_db(search[0])
     end
     
