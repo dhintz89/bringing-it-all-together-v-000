@@ -47,6 +47,6 @@ class Dog
   end
   
   def self.create(dog_hash)
-    dog_hash.each {|key,value| self.send(key: value)}
+    dog_hash.each {|key,value| self.send(
   
 end
