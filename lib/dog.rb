@@ -70,6 +70,7 @@ class Dog
     if search.empty?
       dog = self.create(name: name, breed: breed)
     else
+      dog_data = search[0]
       dog = self.new_from_db(search[0])
     end
     
