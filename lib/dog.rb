@@ -65,9 +65,9 @@ class Dog
     SELECT * FROM dogs WHERE name = ? AND breed = ?
     SQL
     
-    dog = DB[:conn].execute(sql, name, breed)
+    search = DB[:conn].execute(sql, name, breed)
     
-    if dog.empty?
+    if search.empty?
       dog = Dog.create(dog_hash)
     else
       dog = Dog.new_from_db(dog)
